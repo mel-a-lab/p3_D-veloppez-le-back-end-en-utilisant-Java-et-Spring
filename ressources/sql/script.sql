@@ -3,6 +3,7 @@ CREATE INDEX rentals_ibfk_1 ON RENTAL (user_id);
 CREATE INDEX rentals_ibfk_2 ON RENTAL (property_id);
 CREATE INDEX messages_ibfk_1 ON MESSAGES (user_id);
 CREATE INDEX messages_ibfk_2 ON MESSAGES (sender_id);
+CREATE INDEX rentals_ibfk_1 ON MESSAGES (rental_id);
 
 CREATE TABLE `USERS` (
   `id` integer PRIMARY KEY AUTO_INCREMENT,
@@ -12,8 +13,6 @@ CREATE TABLE `USERS` (
   `created_at` timestamp,
   `updated_at` timestamp
 );
-
-CREATE UNIQUE INDEX `USERS_index` ON `USERS` (`email`);
 
 CREATE TABLE `RENTALS` (
   `id` integer PRIMARY KEY AUTO_INCREMENT,
@@ -35,6 +34,8 @@ CREATE TABLE `MESSAGES` (
   `created_at` timestamp,
   `updated_at` timestamp
 );
+
+CREATE UNIQUE INDEX `USERS_index` ON `USERS` (`email`);
 
 ALTER TABLE `USERS` ADD FOREIGN KEY (`id`) REFERENCES `RENTALS` (`owner_id`);
 
