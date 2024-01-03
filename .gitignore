@@ -40,3 +40,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Other
+/Dussenne_Mélanie_3_Developper_backend_Java_Spring_122023.txt
